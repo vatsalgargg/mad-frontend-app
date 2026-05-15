@@ -122,10 +122,39 @@
 @layer base {
   * {
     @apply border-border outline-ring/50;
+    -webkit-tap-highlight-color: transparent;
   }
 
   body {
     @apply bg-background text-foreground;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  /* Mobile optimizations for Flutter WebView */
+  html {
+    -webkit-text-size-adjust: 100%;
+    touch-action: manipulation;
+  }
+
+  /* Smooth scrolling */
+  * {
+    scroll-behavior: smooth;
+  }
+
+  /* Remove default button styles for better mobile touch */
+  button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+
+  /* Smooth transitions for all interactive elements */
+  a, button, [role="button"] {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   /**

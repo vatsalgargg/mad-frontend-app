@@ -1,279 +1,248 @@
 import { Header } from "./Header";
-import { AlertTriangle, AlertCircle } from "lucide-react";
+import { AlertTriangle, AlertCircle, TrendingUp, Zap, Shield, ChevronRight } from "lucide-react";
 import { Link } from "react-router";
 
 export function SafetyScore() {
   return (
-    <div className="min-h-screen bg-[#FAF9F6]">
+    <div className="min-h-screen bg-gray-50 pb-20">
       <Header currentPage="Safety Score" />
 
-      <main className="max-w-[1400px] mx-auto px-8 py-12">
-        <div className="grid grid-cols-[420px_1fr] gap-8">
-          {/* Left Column */}
-          <div>
-            {/* Safety Score Card */}
-            <div className="bg-white rounded-xl border border-gray-200 p-8 mb-6">
-              <div className="text-xs text-gray-500 uppercase tracking-wider mb-3">Route score</div>
-              <div className="text-[80px] leading-none mb-6">78</div>
-              <p className="text-base text-gray-600 leading-relaxed mb-8">
-                Moderately safe for night commute on MG Road Corridor.
-              </p>
+      <main className="max-w-md mx-auto px-4 py-6 space-y-6">
+        {/* Safety Score Card */}
+        <div className="bg-white rounded-2xl shadow-lg border border-gray-200 p-8 text-center animate-scaleIn">
+          <div className="text-xs text-gray-500 font-bold uppercase tracking-widest mb-3">Route Safety Score</div>
 
-              <div className="grid grid-cols-3 gap-6 mb-8 pb-8 border-b border-gray-200">
-                <div>
-                  <div className="text-xs text-gray-500 uppercase tracking-wider mb-2">Updated</div>
-                  <div className="text-base font-medium">2 min ago</div>
-                </div>
-                <div>
-                  <div className="text-xs text-gray-500 uppercase tracking-wider mb-2">Area</div>
-                  <div className="text-base font-medium">MG Road</div>
-                </div>
-                <div>
-                  <div className="text-xs text-gray-500 uppercase tracking-wider mb-2">Route</div>
-                  <div className="text-base font-medium">Night</div>
-                  <div className="text-sm text-gray-600">Commute</div>
-                </div>
-              </div>
-
-              {/* Coverage Stats */}
-              <div className="mb-8">
-                <div className="text-xs text-gray-500 uppercase tracking-wider mb-4">Coverage stats</div>
-                <p className="text-sm text-gray-600 leading-relaxed mb-6">
-                  Calculates most of the route daytime layer. Long cross-mixed
-                  distances can trigger on SOS dashboard warning but if road quality and
-                  lighting coverage exceeds.
-                </p>
-
-                <div className="space-y-2">
-                  <div className="flex items-center justify-between text-sm">
-                    <span className="text-gray-600">Route indexed</span>
-                    <span className="font-medium">100%</span>
-                  </div>
-                  <div className="w-full h-2 bg-gray-200 rounded-full overflow-hidden">
-                    <div className="h-full bg-green-600 rounded-full" style={{ width: "100%" }}></div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Warnings */}
-              <div className="space-y-4">
-                <div className="bg-orange-50 border border-orange-200 rounded-xl p-4 flex items-start gap-3">
-                  <AlertTriangle className="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" />
-                  <div>
-                    <div className="text-sm font-medium mb-1">Route forecast</div>
-                    <div className="text-sm text-gray-600 leading-relaxed">
-                      Church Street predicts slow fragment path previous in this corridor and
-                      expresses late arrival.
-                    </div>
-                  </div>
-                </div>
-
-                <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 flex items-start gap-3">
-                  <AlertCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
-                  <div>
-                    <div className="text-sm font-medium mb-1">Recommendation action</div>
-                    <div className="text-sm text-gray-600">
-                      Choose the route with stronger light
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Metrics Grid */}
-            <div className="grid grid-cols-3 gap-4 mb-6">
-              <div className="bg-white rounded-xl border border-gray-200 p-5">
-                <div className="text-xs text-gray-500 uppercase tracking-wider mb-2">Potholes</div>
-                <div className="text-3xl font-medium mb-2">9.4</div>
-                <div className="text-sm text-gray-600 mb-3">Moderate potholes</div>
-                <div className="text-xs text-gray-600 mb-3 leading-relaxed">
-                  Pothole potholes mapped to (82%) in
-                </div>
-                <div className="h-1.5 bg-gray-200 rounded-full overflow-hidden">
-                  <div className="h-full bg-orange-500" style={{ width: "30%" }}></div>
-                </div>
-              </div>
-
-              <div className="bg-white rounded-xl border border-gray-200 p-5">
-                <div className="text-xs text-gray-500 uppercase tracking-wider mb-2">Roadlights</div>
-                <div className="text-3xl font-medium mb-2">7.6</div>
-                <div className="text-sm text-gray-600 mb-3">Severity not standard</div>
-                <div className="text-xs text-gray-600 mb-3 leading-relaxed">
-                  Some roadlights missing at 2km east
-                </div>
-                <div className="h-1.5 bg-gray-200 rounded-full overflow-hidden">
-                  <div className="h-full bg-yellow-500" style={{ width: "35%" }}></div>
-                </div>
-              </div>
-
-              <div className="bg-white rounded-xl border border-gray-200 p-5">
-                <div className="text-xs text-gray-500 uppercase tracking-wider mb-2">Theft</div>
-                <div className="text-3xl font-medium mb-2">-</div>
-                <div className="text-sm text-gray-600 mb-3">Three incidents</div>
-                <div className="text-xs text-gray-600 mb-3 leading-relaxed">
-                  Three vehicle theft, Still increases
-                </div>
-                <div className="h-1.5 bg-gray-200 rounded-full overflow-hidden">
-                  <div className="h-full bg-red-500" style={{ width: "33%" }}></div>
-                </div>
-              </div>
-            </div>
-
-            {/* How to read */}
-            <div className="bg-white rounded-xl border border-gray-200 p-6 mb-6">
-              <div className="text-base font-medium mb-6">How to read this score</div>
-              <div className="space-y-5">
-                <div>
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-sm font-medium">Potholes reduce risk</span>
-                    <span className="text-sm font-medium">30%</span>
-                  </div>
-                  <div className="text-sm text-gray-600 leading-relaxed">
-                    Potholes rarely result deficits improve stability and reduced
-                    incident probability.
-                  </div>
-                </div>
-
-                <div>
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-sm font-medium">Streetlights improve</span>
-                    <span className="text-sm font-medium">25%</span>
-                  </div>
-                  <div className="text-sm text-gray-600 leading-relaxed">
-                    Better light coverage supports pedestrian exposure and
-                    supports fewer risky events.
-                  </div>
-                </div>
-
-                <div>
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-sm font-medium">Theft affects</span>
-                    <span className="text-sm font-medium">20%</span>
-                  </div>
-                  <div className="text-sm text-gray-600 leading-relaxed">
-                    Repeat incidents incidents increase lower trust
-                    incidents per area. Still increases alert level.
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* SOS Deadzone */}
-            <div className="bg-white rounded-xl border border-gray-200 p-6">
-              <div className="text-xs text-gray-500 uppercase tracking-wider mb-4">Emergency coverage level</div>
-              <div className="text-base font-medium mb-6">SOS deadzone analysis</div>
-
-              <div className="space-y-5 mb-6">
-                <div>
-                  <div className="text-xs text-gray-500 uppercase tracking-wider mb-2">Threat density</div>
-                  <div className="text-2xl font-medium">Low</div>
-                </div>
-                <div>
-                  <div className="text-xs text-gray-500 uppercase tracking-wider mb-2">No-service stretch</div>
-                  <div className="text-2xl font-medium">0 (30 L)</div>
-                  <div className="text-sm text-gray-600">3 km / mile</div>
-                </div>
-                <div>
-                  <div className="text-xs text-gray-500 uppercase tracking-wider mb-2">Recommendation</div>
-                  <div className="text-2xl font-medium">Avoid</div>
-                  <div className="text-sm text-gray-600">30 miles</div>
-                </div>
-              </div>
-
-              <p className="text-sm text-gray-600 leading-relaxed">
-                This major route lacks SOS at stretches stretch. Cellular network is weak
-                pressures making 8 KSA hazard, making it for better choice for night driving and road
-                risks.
-              </p>
-            </div>
-
-            <div className="bg-orange-50 border border-orange-200 rounded-xl p-4 mt-6">
-              <div className="text-sm font-medium mb-1">Warning: active</div>
-              <div className="text-sm text-gray-600">Flooding</div>
+          <div className="relative inline-block mb-6">
+            <svg className="w-32 h-32" viewBox="0 0 120 120">
+              <circle
+                cx="60"
+                cy="60"
+                r="54"
+                fill="none"
+                stroke="#e5e7eb"
+                strokeWidth="8"
+              />
+              <circle
+                cx="60"
+                cy="60"
+                r="54"
+                fill="none"
+                stroke="#10b981"
+                strokeWidth="8"
+                strokeDasharray="339.292"
+                strokeDashoffset="67.858"
+                strokeLinecap="round"
+                transform="rotate(-90 60 60)"
+                className="transition-all duration-1000"
+              />
+            </svg>
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="text-5xl font-bold text-emerald-600">78</div>
             </div>
           </div>
 
-          {/* Right Column */}
-          <div>
-            {/* Map */}
-            <div className="bg-white rounded-xl border border-gray-200 p-8 mb-6">
-              <div className="bg-[#1a1a1a] rounded-xl overflow-hidden mb-6 h-96 flex items-center justify-center">
-                <svg className="w-full h-full" viewBox="0 0 600 400">
-                  <path
-                    d="M 80,320 Q 150,250 220,200 Q 290,150 360,120 Q 430,90 520,60"
-                    fill="none"
-                    stroke="#10b981"
-                    strokeWidth="5"
-                    strokeLinecap="round"
-                  />
-                  <circle cx="80" cy="320" r="7" fill="#10b981" />
-                  <circle cx="220" cy="200" r="7" fill="#10b981" />
-                  <circle cx="360" cy="120" r="7" fill="#10b981" />
-                  <circle cx="520" cy="60" r="7" fill="#10b981" />
+          <p className="text-base text-gray-700 leading-relaxed mb-6 font-medium">
+            Moderately safe for night commute on MG Road Corridor
+          </p>
 
-                  {/* Markers */}
-                  <g transform="translate(220, 190)">
-                    <path d="M 0,-12 L 6,0 L 0,10 L -6,0 Z" fill="#10b981" />
-                  </g>
-                  <g transform="translate(360, 110)">
-                    <path d="M 0,-12 L 6,0 L 0,10 L -6,0 Z" fill="#10b981" />
-                  </g>
-                  <g transform="translate(520, 50)">
-                    <path d="M 0,-12 L 6,0 L 0,10 L -6,0 Z" fill="#10b981" />
-                  </g>
-                </svg>
+          <div className="grid grid-cols-3 gap-4 bg-gray-50 rounded-xl p-4 border border-gray-200">
+            <div>
+              <div className="text-xs text-gray-500 font-bold mb-1">Updated</div>
+              <div className="text-sm font-semibold text-gray-900">2m ago</div>
+            </div>
+            <div>
+              <div className="text-xs text-gray-500 font-bold mb-1">Area</div>
+              <div className="text-sm font-semibold text-gray-900">MG Road</div>
+            </div>
+            <div>
+              <div className="text-xs text-gray-500 font-bold mb-1">Time</div>
+              <div className="text-sm font-semibold text-gray-900">Night</div>
+            </div>
+          </div>
+        </div>
+
+        {/* Progress Bar */}
+        <div className="bg-white rounded-xl shadow-md border border-gray-200 p-5 animate-slideUp">
+          <div className="text-xs text-gray-500 font-bold uppercase tracking-wide mb-3">Coverage Status</div>
+          <div className="flex items-center justify-between mb-2">
+            <span className="text-sm font-semibold text-gray-700">Route Indexed</span>
+            <span className="text-sm font-bold text-emerald-600">100%</span>
+          </div>
+          <div className="w-full h-3 bg-gray-200 rounded-full overflow-hidden">
+            <div className="h-full bg-emerald-500 rounded-full transition-all duration-1000" style={{ width: "100%" }}></div>
+          </div>
+        </div>
+
+        {/* Metrics Grid */}
+        <div className="grid grid-cols-3 gap-3 animate-slideUp">
+          <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-4 transition-all duration-300 active:scale-95">
+            <div className="flex items-center justify-center w-10 h-10 bg-orange-100 rounded-xl mb-3 mx-auto">
+              <AlertTriangle className="w-5 h-5 text-orange-600" />
+            </div>
+            <div className="text-xs text-gray-500 font-bold mb-1 text-center">Potholes</div>
+            <div className="text-2xl font-bold text-gray-900 text-center mb-2">9.4</div>
+            <div className="h-1.5 bg-gray-200 rounded-full overflow-hidden">
+              <div className="h-full bg-orange-500 rounded-full" style={{ width: "30%" }}></div>
+            </div>
+          </div>
+
+          <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-4 transition-all duration-300 active:scale-95">
+            <div className="flex items-center justify-center w-10 h-10 bg-amber-100 rounded-xl mb-3 mx-auto">
+              <Zap className="w-5 h-5 text-amber-600" />
+            </div>
+            <div className="text-xs text-gray-500 font-bold mb-1 text-center">Lights</div>
+            <div className="text-2xl font-bold text-gray-900 text-center mb-2">7.6</div>
+            <div className="h-1.5 bg-gray-200 rounded-full overflow-hidden">
+              <div className="h-full bg-amber-500 rounded-full" style={{ width: "35%" }}></div>
+            </div>
+          </div>
+
+          <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-4 transition-all duration-300 active:scale-95">
+            <div className="flex items-center justify-center w-10 h-10 bg-red-100 rounded-xl mb-3 mx-auto">
+              <Shield className="w-5 h-5 text-red-600" />
+            </div>
+            <div className="text-xs text-gray-500 font-bold mb-1 text-center">Theft</div>
+            <div className="text-2xl font-bold text-gray-900 text-center mb-2">3</div>
+            <div className="h-1.5 bg-gray-200 rounded-full overflow-hidden">
+              <div className="h-full bg-red-500 rounded-full" style={{ width: "33%" }}></div>
+            </div>
+          </div>
+        </div>
+
+        {/* Alerts */}
+        <div className="space-y-3 animate-slideUp">
+          <div className="bg-amber-50 border-2 border-amber-300 rounded-xl p-4 shadow-sm">
+            <div className="flex gap-3">
+              <div className="flex items-center justify-center w-10 h-10 bg-amber-100 rounded-xl flex-shrink-0">
+                <AlertTriangle className="w-5 h-5 text-amber-700" />
               </div>
-
-              <div className="bg-blue-50 border border-blue-200 rounded-xl p-5">
-                <div className="text-base font-medium mb-2">Route forecast</div>
-                <p className="text-sm text-gray-600 leading-relaxed">
-                  Church Street predicts low fragment path previous in this corridor and
-                  expresses late arrival.
-                </p>
+              <div>
+                <div className="text-sm font-bold text-amber-900 mb-1">Route Forecast</div>
+                <div className="text-xs text-gray-700 leading-relaxed">
+                  Church Street predicts slow traffic. Expect delays in this corridor.
+                </div>
               </div>
             </div>
+          </div>
 
-            {/* Recommendation */}
-            <div className="bg-white rounded-xl border border-gray-200 p-8">
-              <div className="text-2xl mb-4">Choose the route with stronger light</div>
-              <p className="text-base text-gray-600 mb-8 leading-relaxed">
-                Higher the better corridor, avoid the 4th side area after the native calls and
-                choose whichever alternative reference calling late fields.
-              </p>
-
-              <div className="flex gap-4 mb-10">
-                <Link
-                  to="/guardian-mode"
-                  className="flex-1 px-6 py-3 bg-black text-white rounded-lg text-base text-center"
-                >
-                  View safest route
-                </Link>
-                <button className="flex-1 px-6 py-3 border border-gray-300 bg-white rounded-lg text-base">
-                  Share report
-                </button>
+          <div className="bg-blue-50 border-2 border-blue-300 rounded-xl p-4 shadow-sm">
+            <div className="flex gap-3">
+              <div className="flex items-center justify-center w-10 h-10 bg-blue-100 rounded-xl flex-shrink-0">
+                <AlertCircle className="w-5 h-5 text-blue-600" />
               </div>
-
-              <div className="pt-8 border-t border-gray-200">
-                <div className="text-xs text-gray-500 uppercase tracking-wider mb-5">Last 7 days</div>
-                <div className="space-y-4">
-                  <div className="flex items-center justify-between text-sm">
-                    <span className="text-gray-600">Potholes reported</span>
-                    <span className="text-blue-600 font-medium">+5</span>
-                  </div>
-                  <div className="flex items-center justify-between text-sm">
-                    <span className="text-gray-600">Lights active</span>
-                    <span className="font-medium">73%</span>
-                  </div>
-                  <div className="flex items-center justify-between text-sm">
-                    <span className="text-gray-600">Theft incidents</span>
-                    <span className="font-medium">3</span>
-                  </div>
+              <div>
+                <div className="text-sm font-bold text-blue-900 mb-1">Recommendation</div>
+                <div className="text-xs text-gray-700 leading-relaxed">
+                  Choose the route with stronger lighting for better safety.
                 </div>
               </div>
             </div>
           </div>
         </div>
+
+        {/* Map Preview */}
+        <div className="bg-white rounded-2xl shadow-md border border-gray-200 p-5 animate-slideUp">
+          <div className="text-sm font-bold text-gray-900 mb-4">Route Visualization</div>
+
+          <div className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-xl p-6 h-48 flex items-center justify-center shadow-lg mb-5">
+            <svg className="w-full h-full" viewBox="0 0 300 180">
+              <defs>
+                <linearGradient id="mapRoute" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#10b981" />
+                  <stop offset="50%" stopColor="#059669" />
+                  <stop offset="100%" stopColor="#047857" />
+                </linearGradient>
+              </defs>
+              <path
+                d="M 40,150 Q 80,120 120,100 Q 160,80 200,65 Q 240,50 280,40"
+                fill="none"
+                stroke="url(#mapRoute)"
+                strokeWidth="5"
+                strokeLinecap="round"
+                filter="drop-shadow(0 0 8px rgba(16, 185, 129, 0.5))"
+              />
+              <circle cx="40" cy="150" r="6" fill="#10b981" filter="drop-shadow(0 0 4px #10b981)"/>
+              <circle cx="120" cy="100" r="6" fill="#059669" filter="drop-shadow(0 0 4px #059669)"/>
+              <circle cx="200" cy="65" r="6" fill="#047857" filter="drop-shadow(0 0 4px #047857)"/>
+              <circle cx="280" cy="40" r="6" fill="#065f46" filter="drop-shadow(0 0 4px #065f46)"/>
+
+              <g transform="translate(120, 90)">
+                <path d="M 0,-8 L 5,0 L 0,7 L -5,0 Z" fill="#059669" />
+              </g>
+              <g transform="translate(200, 55)">
+                <path d="M 0,-8 L 5,0 L 0,7 L -5,0 Z" fill="#047857" />
+              </g>
+            </svg>
+          </div>
+
+          <div className="flex gap-3">
+            <Link
+              to="/guardian-mode"
+              className="flex-1 px-5 py-3.5 bg-slate-800 text-white rounded-xl font-bold text-center shadow-lg hover:bg-slate-900 transition-all duration-300 active:scale-95"
+            >
+              View Route
+            </Link>
+            <button className="flex-1 px-5 py-3.5 border-2 border-gray-300 bg-white rounded-xl font-bold text-gray-700 hover:bg-gray-50 transition-all duration-300 active:scale-95">
+              Share
+            </button>
+          </div>
+        </div>
+
+        {/* Stats */}
+        <div className="bg-white rounded-xl shadow-md border border-gray-200 p-5 animate-slideUp">
+          <div className="text-xs text-gray-500 font-bold uppercase tracking-wide mb-4">Last 7 Days</div>
+          <div className="space-y-3">
+            <div className="flex items-center justify-between">
+              <span className="text-sm text-gray-700 font-medium">Potholes Reported</span>
+              <span className="text-sm font-bold text-blue-600">+5</span>
+            </div>
+            <div className="flex items-center justify-between">
+              <span className="text-sm text-gray-700 font-medium">Lights Active</span>
+              <span className="text-sm font-bold text-gray-900">73%</span>
+            </div>
+            <div className="flex items-center justify-between">
+              <span className="text-sm text-gray-700 font-medium">Theft Incidents</span>
+              <span className="text-sm font-bold text-gray-900">3</span>
+            </div>
+          </div>
+        </div>
       </main>
+
+      <style>{`
+        @keyframes scaleIn {
+          from {
+            opacity: 0;
+            transform: scale(0.9);
+          }
+          to {
+            opacity: 1;
+            transform: scale(1);
+          }
+        }
+
+        @keyframes slideUp {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        .animate-scaleIn {
+          animation: scaleIn 0.5s ease-out;
+        }
+
+        .animate-slideUp {
+          animation: slideUp 0.6s ease-out;
+        }
+
+        .active\\:scale-95:active {
+          transform: scale(0.95);
+        }
+      `}</style>
     </div>
   );
 }
