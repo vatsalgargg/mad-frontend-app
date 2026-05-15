@@ -17,6 +17,8 @@ function figmaAssetResolver() {
 }
 
 export default defineConfig({
+  // Base path for GitHub Pages (repo name). Vercel ignores this safely.
+  base: '/mad-frontend-app/',
   plugins: [
     figmaAssetResolver(),
     // The React and Tailwind plugins are both required for Make, even if
